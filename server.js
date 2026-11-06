@@ -107,4 +107,33 @@ app.get('/api/admin/registrations', async (req, res) => {
 });
 
 app.post('/api/admin/update-qr', upload.single('qrImage'), async (req, res) => {
-    if (!req.session.isAdmin
+    if (!req.session.isAdmin) return res.status(403).json({ error: 'Unauthorized' });
+    try {
+        const { upiId } = req.body;
+        let qrImageUrl = req.file ? `/uploads/${req.file.filename}` : undefined;
+
+        let setting = await PaymentSetting.findOne();
+        if (!setting) {
+            setting = new PaymentSetting({ 
+                upiId, 
+                qrImageUrl: qrImageUrl || 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=' + upiId 
+            });
+        } else {
+            if (upiId) setting.upiId = upiId;
+            if (qrImageUrl) setting.qrImageUrl = qrImageUrl;
+        }
+        await setting.save();
+        res.json({ success: true, message: 'Payment details updated successfully!' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: 'Failed to update payment settings' });
+    }
+});
+
+app.get('/admin/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+});
+
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+        
