@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwriting Book Publication - Work From Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --gold: #f39c12; --gold-gradient: linear-gradient(135deg, #ffe066 0%, #d4af37 50%, #aa7c11 100%); --dark-bg: #0a0a0a; --card-bg: #141414; --border-gold: 2px solid #d4af37; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--dark-bg); color: #fff; }
+        header { background: #000; border-bottom: 2px solid #d4af37; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo i { font-size: 40px; color: var(--gold); }
+        .logo-text h1 { font-size: 26px; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
+        .logo-text p { font-size: 13px; color: #ddd; }
+        nav { background: linear-gradient(90deg, #111, #222, #111); border-bottom: 1px solid #333; padding: 10px 5%; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        nav a { color: #fff; text-decoration: none; padding: 8px 16px; font-weight: 600; font-size: 14px; border-radius: 4px; }
+        nav a:hover, nav a.active { background: var(--gold-gradient); color: #000; }
+        .hero { display: flex; justify-content: space-between; align-items: center; padding: 40px 5%; background: radial-gradient(circle, #221a00 0%, #050505 100%); border-bottom: 2px solid #333; flex-wrap: wrap; gap: 30px; }
+        .hero-text h2 { font-size: 38px; color: var(--gold); margin-bottom: 10px; }
+        .alert-strip { background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b); color: #000; padding: 12px 5%; text-align: center; font-weight: 800; font-size: 15px; }
+        .section-title { text-align: center; margin: 40px 0 20px; font-size: 28px; color: var(--gold); }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; padding: 0 5% 40px; }
+        .project-card { background: var(--card-bg); border: var(--border-gold); border-radius: 12px; padding: 25px; text-align: center; }
+        .project-card h3 { color: var(--gold); font-size: 22px; margin-bottom: 15px; }
+        .salary { font-size: 18px; font-weight: bold; color: #2ecc71; margin: 5px 0; }
+        .fee { font-size: 18px; font-weight: bold; color: var(--gold); margin: 5px 0; }
+        .btn-select { display: block; width: 100%; background: var(--gold-gradient); color: #000; border: none; padding: 10px; font-weight: 700; border-radius: 6px; margin-top: 15px; cursor: pointer; text-decoration: none; }
+        .payment-section { background: #111; padding: 40px 5%; border-top: 2px solid #333; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; }
+        .qr-box { background: #fff; padding: 20px; border-radius: 12px; text-align: center; color: #000; border: 4px solid var(--gold); }
+        .qr-box img { width: 180px; height: 180px; }
+        .reg-form { background: var(--card-bg); border: var(--border-gold); padding: 30px; border-radius: 12px; width: 100%; max-width: 480px; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 4px; font-size: 13px; color: var(--gold); }
+        .form-group input, .form-group select { width: 100%; padding: 9px; background: #222; border: 1px solid #444; color: #fff; border-radius: 5px; }
+        footer { background: #050505; padding: 20px; text-align: center; border-top: 1px solid #222; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-book-open"></i>
+            <div class="logo-text">
+                <h1>Handwriting Book Publication</h1>
+                <p>Write Your Skills... Work From Home...</p>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#projects">Work Projects</a>
+        <a href="#register">Registration</a>
+    </nav>
+    <div class="alert-strip">
+        ⚡ 50% Advance Salary 15 mins after registration! 100% Refundable Fee. ⚡
+    </div>
+    <h2 class="section-title" id="projects">Select Writing Project Plan ✍️</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Project 1️⃣</h3>
+            <p>📚 50 Pages Book</p>
+            <p>⏰ Timing: 7 Days</p>
+            <p class="salary">💰 Salary: ₹25,000/-</p>
+            <p class="fee">✔️ Reg Fee: ₹499/-</p>
+            <button class="btn-select" onclick="selectPlan('Project 1')">Select Plan</button>
+        </div>
+        <div class="project-card">
+            <h3>Project 2️⃣</h3>
+            <p>📚 90 Pages Book</p>
+            <p>⏰ Timing: 10 Days</p>
+            <p class="salary">💰 Salary: ₹30,000/-</p>
+            <p class="fee">✔️ Reg Fee: ₹750/-</p>
+            <button class="btn-select" onclick="selectPlan('Project 2')">Select Plan</button>
+        </div>
+        <div class="project-card">
+            <h3>Project 3️⃣</h3>
+            <p>📚 120 Pages Book</p>
+            <p>⏰ Timing: 15 Days</p>
+            <p class="salary">💰 Salary: ₹35,000/-</p>
+            <p class="fee">✔️ Reg Fee: ₹1,199/-</p>
+            <button class="btn-select" onclick="selectPlan('Project 3')">Select Plan</button>
+        </div>
+        <div class="project-card">
+            <h3>Project 4️⃣</h3>
+            <p>📚 190 Pages Book</p>
+            <p>⏰ Timing: 26 Days</p>
+            <p class="salary">💰 Salary: ₹40,000/-</p>
+            <p class="fee">✔️ Reg Fee: ₹1,499/-</p>
+            <button class="btn-select" onclick="selectPlan('Project 4')">Select Plan</button>
+        </div>
+    </div>
+    <section class="payment-section" id="register">
+        <div class="qr-box">
+            <h3>Scan QR Code & Pay</h3>
+            <img id="display-qr" src="" alt="QR Code">
+            <div id="display-upi" style="font-weight:bold; margin-top:10px;">Loading...</div>
+        </div>
+        <div class="reg-form">
+            <h3 style="color:var(--gold); text-align:center; margin-bottom:15px;">REGISTRATION FORM</h3>
+            <form id="customerForm">
+                <div class="form-group"><label>NAME</label><input type="text" id="name" required></div>
+                <div class="form-group"><label>ADDRESS</label><input type="text" id="address" required></div>
+                <div class="form-group"><label>MOBILE</label><input type="tel" id="mobile" required></div>
+                <div class="form-group"><label>PINCODE</label><input type="text" id="pincode" required></div>
+                <div class="form-group"><label>DISTRICT</label><input type="text" id="district" required></div>
+                <div class="form-group">
+                    <label>PROJECT</label>
+                    <select id="project">
+                        <option value="Project 1">Project 1 (50 Pages)</option>
+                        <option value="Project 2">Project 2 (90 Pages)</option>
+                        <option value="Project 3">Project 3 (120 Pages)</option>
+                        <option value="Project 4">Project 4 (190 Pages)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-select">Submit Registration</button>
+            </form>
+        </div>
+    </section>
+    <footer><p>&copy; 2026 Handwriting Book Publication</p></footer>
+    <script>
+        function selectPlan(plan) { document.getElementById('project').value = plan; window.location.href = '#register'; }
+        async function loadPayment() {
+            const res = await fetch('/api/payment-details');
+            const data = await res.json();
+            if (data.upiId) document.getElementById('display-upi').innerText = "UPI ID: " + data.upiId;
+            if (data.qrImageUrl) document.getElementById('display-qr').src = data.qrImageUrl;
+        }
+        loadPayment();
+        document.getElementById('customerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('name').value,
+                address: document.getElementById('address').value,
+                mobile: document.getElementById('mobile').value,
+                pincode: document.getElementById('pincode').value,
+                district: document.getElementById('district').value,
+                project: document.getElementById('project').value
+            };
+            const res = await fetch('/api/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
+            const result = await res.json();
+            if(result.success) alert('Registration Successful!');
+        });
+    </script>
+</body>
+</html>
